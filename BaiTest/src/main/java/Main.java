@@ -1,4 +1,6 @@
+import java.io.IOException;
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Main {
@@ -40,8 +42,8 @@ public class Main {
         System.out.print("Enter your choice: ");
     }
 
-    public static void main(String[] args) {
-        StudentManagement studentManagement = new StudentManagement(FileCSV.readByFileCSV("fileRead.csv"));
+    public static void main(String[] args)throws IOException {
+        StudentManagement studentManagement = new StudentManagement(FileCSV.readByFileCSV("D:\\02_Module2\\BT_Tuan3\\BaiTest\\src\\main\\fileRead.csv"));
         do {
             int choice = -1;
             int option = -1;
@@ -55,6 +57,8 @@ public class Main {
                     studentManagement.display();
                     break;
                 case 3:
+                    boolean check=true;
+                    System.out.println("Enter id :");
                     String id = sc.nextLine();
                     String result = studentManagement.checkID(id);
                     if (result == null) {
@@ -86,11 +90,12 @@ public class Main {
                                     studentManagement.editInformationByID(id);
                                     break;
                                 case 0:
-                                    System.exit(0);
+                                    check=false;
+                                    break;
                                 default:
                                     System.out.println("Invalid!");
                             }
-                        } while (true);
+                        } while (check==true);
                     }
                     break;
                 case 4:

@@ -50,8 +50,8 @@ public class FileCSV {
                student = new Student(obj[0],obj[1],obj[2],obj[3],gender,obj[5],obj[6],Float.parseFloat(obj[7]));
                hashMap.put(obj[0],student);
            }
-           br.close();
-           fr.close();
+//           br.close();
+//           fr.close();
        }catch (IOException e){
            System.err.println("Can't read file!");
        }
